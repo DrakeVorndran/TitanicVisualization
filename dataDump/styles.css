@@ -12,3 +12,11 @@ body {
   width: 20px;
   margin: 5px;
 }
+nav {
+  height: 5vh;
+  width: 100vw;
+  background-color: #DDD;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

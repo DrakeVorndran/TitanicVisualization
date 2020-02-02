@@ -2,13 +2,52 @@ body {
   height: 100vh;
 }
 
+nav {
+  height: 5vh;
+  width: 100vw;
+  background-color: #DDD;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .container {
   background-color: #DDD;
-  height: 50%;
+  // height: 50%;
+  min-height: 50%;
   margin: 10px;
   text-align: center;
+
+  .ages {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      padding: 0px;
+      margin: 0px;
+    }
+    .age {
+      display: flex;
+
+      .person {
+        height: 10px;
+        width: 10px;
+        margin: 3px;
+      }
+  
+      .true {
+        background-color: rgb(0, 17, 173);
+      }
+  
+      .false {
+        background-color: rgb(184, 3, 3);
+      }
+    }
+    
+  }
+
   .graph {
-    height: 80%;
+    height: 35vh;
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -39,11 +78,11 @@ body {
         }
 
         .male {
-          background-color: blue;
+          background-color: #1fb2f7;
         }
 
         .female {
-          background-color: red;
+          background-color: rgb(255, 81, 212);
         }
       }
 

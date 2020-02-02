@@ -48,6 +48,36 @@ function handleData(passengers) {
 
   })
 
+  const ageSurvival = {}
+  passengers.forEach((passenger) => {
+    if(passenger.fields.age in ageSurvival) {
+      ageSurvival[passenger.fields.age].push(passenger.fields.survived == "Yes") 
+    }
+    else {
+      ageSurvival[passenger.fields.age] = [passenger.fields.survived == "Yes"]
+    }
+  })
+
+  delete ageSurvival[undefined]
+  
+  const agesDiv = document.querySelector(".ages")
+  Object.keys(ageSurvival).forEach(age => {
+    ageSurvival[age].sort((a, b) => a == b? 0 : a ? -1 : 1)
+    const ageDiv = document.createElement("div")
+    const ageP = document.createElement("p")
+    ageP.innerHTML = age
+    ageDiv.appendChild(ageP)
+    ageDiv.classList.add("age")
+    ageSurvival[age].forEach(person => {
+      const personDiv = document.createElement("div")
+      personDiv.classList.add("person")
+      personDiv.classList.add(person)
+      ageDiv.appendChild(personDiv)
+    })
+    agesDiv.appendChild(ageDiv)
+  })
+  
+
   
 
 

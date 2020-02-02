@@ -5,6 +5,15 @@ body {
   text-align: center;
 }
 
+nav {
+  height: 5vh;
+  width: 100vw;
+  background-color: #DDD;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .vis > div {
   display: flex;
   flex-wrap: wrap;
