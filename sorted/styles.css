@@ -1,0 +1,57 @@
+body {
+  font-family: 'Raleway';
+  background-color: #050505;
+  color: #EDEDED;
+  text-align: center;
+}
+
+.vis > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.vis > div > div {
+  height: 20px;
+  width: 20px;
+  margin: 3px;
+}
+
+.vis > .key {
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+.male {
+  border-radius: 0px;
+}
+
+.female {
+  border-radius: 30%;
+}
+
+.s {
+  border: 2px solid rgb(0, 0, 240);
+}
+
+.c {
+  border: 2px solid #00DD00;
+}
+
+.q {
+  border: 2px solid rgb(255, 157, 0);
+} 
+
+.undefined {
+  border: 2px solid rgb(255, 0, 0);
+}
+
+.survive {
+  transform: rotate(45deg);
+}
+
+.die {
+  transform: rotate(0deg);
+}
