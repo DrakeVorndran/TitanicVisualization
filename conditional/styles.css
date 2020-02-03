@@ -1,0 +1,79 @@
+body {
+  font-size: 12pt;
+  font-family: "Raleway";
+}
+
+nav {
+  height: 5vh;
+  width: 100vw;
+  background-color: #DDD;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.passenger {
+  padding: 10px;
+  border: 2px black solid;
+  border-radius: 10px;
+  margin: 10px;
+  width: auto;
+  display: inline-block;
+}
+
+.data {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.data > div {
+  margin: 3px;
+  height: 10px;
+  width: 10px;
+  border: 2px solid;
+  border-color: black;
+  transition: 300ms; 
+  background-color: black;
+}
+
+.true {
+  background-color: blue !important;
+}
+
+.false {
+  background-color: black !important;
+}
+
+.male {
+  border-radius: 0%;
+}
+
+.female {
+  border-radius: 50%;
+}
+
+.c {
+  border-color: yellow !important; 
+}
+
+.s {
+  border-color: blue !important;
+}
+
+.q {
+  border-color: green !important;
+}
+
+.undefined {
+  border-color: red !important;
+}
+
+button {
+  font-size: 1em;
+  padding: 3px;
+  background-color: white;
+  border: 1px black solid;
+  transition: 300ms;
+  border-radius: 3px;
+  
+}
