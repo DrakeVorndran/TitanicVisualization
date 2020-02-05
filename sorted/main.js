@@ -130,3 +130,13 @@ function undefDepart(passengers) {
   const filtered = passengers.filter(passenger => passenger.fields.embarked == undefined)
   filtered.forEach(passenger => renderTo(passenger, undefDiv))
 }
+
+const openButton = document.querySelector(".floating-key > .open")
+const floatingKey = document.querySelector(".floating-key")
+let keyShowing = false
+
+openButton.onclick = () => {
+  floatingKey.classList.toggle("show")
+  keyShowing = !keyShowing
+  openButton.innerHTML = keyShowing ? "<p><</p>" : "<p>></p>"
+}
