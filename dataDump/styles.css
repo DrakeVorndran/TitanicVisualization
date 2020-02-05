@@ -14,7 +14,7 @@ body {
 }
 nav {
   height: 5vh;
-  width: 100vw;
+  width: calc(100vw - 16px);
   background-color: #DDD;
   display: flex;
   justify-content: space-around;

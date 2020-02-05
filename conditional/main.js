@@ -4,9 +4,11 @@ const embarkedButton = document.getElementById("button-embarked")
 const sortDiv = document.getElementsByClassName("sort-box")[0]
 const dataDiv = document.querySelector(".data")
 const passengerDiv = document.querySelector(".passenger")
+const resetButton = document.getElementById("reset")
 
 const divArray = []
 let passengersList = []
+let orignalPassengers = []
 
 let showSurvived = false
 let showGender = false
@@ -14,6 +16,11 @@ let showEmbarked = false
 
 const colorOff = "black"
 const colorOn = "white"
+
+resetButton.onclick = () => {
+  passengersList = [...orignalPassengers]
+  renderData()
+}
 
 const addElement = (name, value) => {
   const nameP = document.createElement("p")
@@ -32,6 +39,8 @@ const addElement = (name, value) => {
 dataDiv.onclick = (e) => {
   const p = passengersList[e.target.dataset.index].fields
   passengerDiv.innerHTML = ""
+  passengerDiv.style.display = "inline-block"
+  
   addElement("Name", p.name)
   addElement("Age", p.age)
   addElement("Survived", p.survived)
@@ -39,6 +48,8 @@ dataDiv.onclick = (e) => {
   addElement("Embarked", p.embarked)
   addElement("Fare", p.fare)
 }
+
+
 
 sortDiv.onclick = (e) => {
   if (e.target.nodeName === "BUTTON") {
@@ -112,12 +123,11 @@ fetch('passengers.json', { mode: 'no-cors' })
 
 function handleData(passengers) {
   passengersList = passengers
+  orignalPassengers = [...passengers]
   const dataDiv = document.querySelector(".data")
   passengers.forEach((passenger, i) => {
     const passengerDiv = document.createElement("div")
-    const att = document.createAttribute("data-index")
-    att.value = i
-    passengerDiv.setAttributeNode(att)
+    passengerDiv.dataset.index = i
     passengerDiv.dataset.index == i
     divArray.push(passengerDiv)
     dataDiv.appendChild(passengerDiv)
