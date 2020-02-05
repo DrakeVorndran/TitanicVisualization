@@ -19,6 +19,7 @@ const colorOn = "white"
 
 resetButton.onclick = () => {
   passengersList = [...orignalPassengers]
+  sortDiv.querySelectorAll("button").forEach(button => changeButton(button, false))
   renderData()
 }
 
@@ -37,16 +38,18 @@ const addElement = (name, value) => {
 }
 
 dataDiv.onclick = (e) => {
-  const p = passengersList[e.target.dataset.index].fields
-  passengerDiv.innerHTML = ""
-  passengerDiv.style.display = "inline-block"
-  
-  addElement("Name", p.name)
-  addElement("Age", p.age)
-  addElement("Survived", p.survived)
-  addElement("Gender", p.sex)
-  addElement("Embarked", p.embarked)
-  addElement("Fare", p.fare)
+  if (e.target.dataset.index) {
+    const p = passengersList[e.target.dataset.index].fields
+    passengerDiv.innerHTML = ""
+    passengerDiv.style.display = "inline-block"
+
+    addElement("Name", p.name)
+    addElement("Age", p.age)
+    addElement("Survived", p.survived)
+    addElement("Gender", p.sex)
+    addElement("Embarked", p.embarked)
+    addElement("Fare", p.fare)
+  }
 }
 
 
@@ -61,15 +64,15 @@ sortDiv.onclick = (e) => {
     }
 
     if (e.target.id == "embarked") {
-      passengersList.sort((a, b) => a.fields.embarked == undefined? b.fields.embarked == undefined ? 0 : 1 : b.fields.embarked == undefined ? -1 : a.fields.embarked.charCodeAt(0) - b.fields.embarked.charCodeAt(0))
+      passengersList.sort((a, b) => a.fields.embarked == undefined ? b.fields.embarked == undefined ? 0 : 1 : b.fields.embarked == undefined ? -1 : a.fields.embarked.charCodeAt(0) - b.fields.embarked.charCodeAt(0))
     }
 
     if (e.target.id == "sex") {
-      passengersList.sort((a, b) => a.fields.sex == b.fields.sex? 0 : a.fields.sex == "male"? 1 : -1)
+      passengersList.sort((a, b) => a.fields.sex == b.fields.sex ? 0 : a.fields.sex == "male" ? 1 : -1)
     }
 
     if (e.target.id == "survived") {
-      passengersList.sort((a, b) => a.fields.survived == b.fields.survived ? 0 : a.fields.survived == "Yes"? -1 : 1)
+      passengersList.sort((a, b) => a.fields.survived == b.fields.survived ? 0 : a.fields.survived == "Yes" ? -1 : 1)
     }
 
     renderData()
